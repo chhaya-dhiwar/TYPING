@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,13 +79,14 @@
     overflow-wrap: break-word;
     white-space: pre-wrap;
     font-family: 'Courier New', monospace;
-    font-size: 16px;
+    font-size: 23px;
     padding: 10px;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
     overflow: hidden;
     height: 200px;
     overflow-y: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
@@ -141,6 +140,7 @@
             padding: 10px;
             background-color: #f0f0f0;
             border-radius: 5px;
+            color: black;
         }
 
         .action-btn {
@@ -187,7 +187,7 @@
 
 body.dark-mode {
       background-color: #121212;
-      color: black;
+      color: white;
     }
 
     .header {
@@ -230,9 +230,9 @@ body.dark-mode {
     </header>
     <div class="container">
         <!-- <a href="page1.html"><button class="home">Home</button></a> -->
-        <h1>Check your typing skills in a minute</h1>
+        <h1 style="color: black;">Check your typing skills in a minute</h1>
         <div class="settings">
-            <label for="duration" style="font-size: 20px; font-weight: bold;">Time Duration:</label>
+            <label for="duration" style="font-size: 20px; font-weight: bold; color: #070707;">Time Duration:</label>
             <select id="duration">
                 <option value="1">1 Minute</option>
                 <option value="2">2 Minutes</option>
@@ -245,14 +245,14 @@ body.dark-mode {
             <p id="timer">Time Left: 0:00</p>
         </div>
         <div class="test-area">
-            <p id="text-to-type"></p>
+            <p id="text-to-type">   </p>
             <textarea id="typing-input" placeholder="Start typing here..." disabled></textarea>
             <div id="results">
                 <div id="wmp">WPM: 0</div>
                 <div id="accuracy">Accuracy: 0%</div>
             </div>
             <div class="action-btns">
-                <button id="reset-btn" class="action-btn" onclick="resetTest()" disabled>Reset</button>
+                <button id="reset-btn" class="action-btn" onclick="resetTest()" disabled>Restart</button>
             </div>
         </div>
     </div>
@@ -264,47 +264,58 @@ body.dark-mode {
      5: ["In the midst of a sprawling desert, an oasis shimmered like a mirage, offering solace to weary travelers. Palm trees swayed gently in the breeze, their fronds casting dappled shadows on the cool, clear waters. This sanctuary of life stood in stark contrast to the endless expanse of golden sand dunes that stretched out in every direction. Camels rested under the shade, their humps laden with precious water, while merchants and nomads exchanged stories and goods by the water’s edge. The oasis was not just a physical refuge but also a cultural crossroads, where the diverse threads of desert life intertwined. As the sun dipped below the horizon, the sky erupted in a blaze of colors, transforming the landscape into a dreamlike tableau. The stars began to twinkle, their light reflected in the tranquil waters of the oasis, creating a sense of magic and wonder.In the midst of a sprawling desert, an oasis shimmered like a mirage, offering solace to weary travelers. Palm trees swayed gently in the breeze, their fronds casting dappled shadows on the cool, clear waters. This sanctuary of life stood in stark contrast to the endless expanse of golden sand dunes that stretched out in every direction. Camels rested under the shade, their humps laden with precious water, while merchants and nomads exchanged stories and goods by the water’s edge.The sun hung low in the December sky, casting elongated shadows across the bustling marketplace of Raipur Tehsil. The air was filled with a melange of scents—spices from distant lands, fresh jasmine flowers, and the unmistakable aroma of street food sizzling on open griddles. Vendors called out their wares, their voices creating a symphony of sounds that blended into the background hum of the day. Among the crowd, an elderly man in a white kurta made his way through, his steps measured and deliberate, his eyes reflecting the wisdom of many winters. The marketplace, vibrant and alive, seemed to pulse with an energy all its own, each stall a microcosm of life’s simple yet profound exchanges. As the evening approached, the sky transformed into a canvas of oranges and pinks, signaling the close of another day.", "The sun hung low in the December sky, casting elongated shadows across the bustling marketplace of Raipur Tehsil. The air was filled with a melange of scents—spices from distant lands, fresh jasmine flowers, and the unmistakable aroma of street food sizzling on open griddles. Vendors called out their wares, their voices creating a symphony of sounds that blended into the background hum of the day. Among the crowd, an elderly man in a white kurta made his way through, his steps measured and deliberate, his eyes reflecting the wisdom of many winters. The marketplace, vibrant and alive, seemed to pulse with an energy all its own, each stall a microcosm of life’s simple yet profound exchanges. As the evening approached, the sky transformed into a canvas of oranges and pinks, signaling the close of another day. The hustle and bustle began to wane, replaced by a serene calm that settled over the town. Shopkeepers, with a sense of satisfaction, began to pack up their goods, their faces bathed in the soft glow of the setting sun. Children, their laughter echoing through the narrow lanes, chased each other in playful abandon, savoring the last moments of daylight. In this timeless dance of commerce and camaraderie, Raipur Tehsil revealed its true essence—a place where tradition and modernity coexisted, where every interaction, no matter how mundane, added a brushstroke to the rich tapestry of community life."],
     10: ["Nestled high in the mountains, a remote village thrived, its residents living in harmony with the rugged terrain. The village, surrounded by towering peaks and lush forests, was a testament to human resilience and ingenuity. Houses with sloping roofs and stone walls clung to the hillsides, each one a unique blend of old-world charm and modern practicality. The air was crisp and clean, filled with the scent of pine and the sounds of nature. Residents went about their daily routines, tending to terraced gardens, herding livestock, and weaving intricate textiles that told stories of their heritage. Life in the village was marked by a deep sense of community, with festivals and traditions bringing people together to celebrate their shared history and culture. As the seasons changed, the village adapted, with winter bringing a blanket of snow that transformed the landscape into a winter wonderland, and spring heralding the return of vibrant wildflowers and new life. Through it all, the villagers remained connected to the land, finding joy and meaning in the simple yet profound rhythm of mountain life.The early morning sun cast a golden hue over the serene waters of a small coastal village. Fishermen prepared their boats for the day's journey, their silhouettes etched against the horizon. The sound of waves gently lapping against the shore created a soothing melody, harmonizing with the calls of seagulls overhead. As the village began to stir, the aroma of freshly baked bread wafted through the air, mingling with the salty sea breeze. This idyllic scene was a daily reminder of the simple joys of life by the sea, where each day began with promise and the unspoken bond between the villagers and the ocean.","In the midst of a sprawling desert, an oasis shimmered like a mirage, offering solace to weary travelers. Palm trees swayed gently in the breeze, their fronds casting dappled shadows on the cool, clear waters. This sanctuary of life stood in stark contrast to the endless expanse of golden sand dunes that stretched out in every direction. Camels rested under the shade, their humps laden with precious water, while merchants and nomads exchanged stories and goods by the water’s edge. The oasis was not just a physical refuge but also a cultural crossroads, where the diverse threads of desert life intertwined. As the sun dipped below the horizon, the sky erupted in a blaze of colors, transforming the landscape into a dreamlike tableau. The stars began to twinkle, their light reflected in the tranquil waters of the oasis, creating a sense of magic and wonder. Here, in this timeless haven, the harsh realities of desert life seemed to fade away, replaced by a sense of peace and connection to the natural world.In the heart of a dense forest, an ancient tree stood tall, its gnarled branches stretching towards the sky. This tree, known as the Whispering Oak, had been a silent witness to countless seasons and stories of the forest inhabitants. Birds of all colors nested in its branches, their songs weaving through the air like threads in a tapestry. The forest floor beneath was a carpet of fallen leaves, moss, and tiny flowers that bloomed in the filtered sunlight. This sanctuary of life and tranquility was a testament to nature's resilience and beauty, providing shelter and nourishment to every creature that called it home.As the evening approached, the sky transformed into a canvas of oranges and pinks, signaling the close of another day. The hustle and bustle began to wane, replaced by a serene calm that settled over the town. Shopkeepers, with a sense of satisfaction, began to pack up their goods, their faces bathed in the soft glow of the setting sun. Children, their laughter echoing through the narrow lanes, chased each other in playful abandon, savoring the last moments of daylight. In this timeless dance of commerce and camaraderie, Raipur Tehsil revealed its true essence—a place where tradition and modernity coexisted, where every interaction, no matter how mundane, added a brushstroke to the rich tapestry of community life."],
 };
+let selectedDuration = 1; // Default duration for the typing test is 1 minute.
+let timerInterval; // Variable to store the interval for the timer.
+let timeLeft = selectedDuration * 60; // Calculates the total time left in seconds.
+let isTestRunning = false; // Flag to indicate if the typing test is currently running.
+let totalWordsTyped = 0; // Keeps track of the total number of words typed.
+let correctWords = 0; // Tracks the number of correctly typed words.
+let incorrectWords = 0; // Tracks the number of incorrectly typed words.
+let currentTextIndex = 0; // Index for the current paragraph from the `paragraphs` object.
 
+const resetBtn = document.getElementById('reset-btn'); // Selects the reset button element.
+const timerElement = document.getElementById('timer'); // Selects the timer display element.
+const typingInput = document.getElementById('typing-input'); // Selects the input element for typing.
+const wpmElement = document.getElementById('wmp'); // Selects the element displaying Words Per Minute (WPM).
+const accuracyElement = document.getElementById('accuracy'); // Selects the element displaying accuracy percentage.
+const textToTypeElement = document.getElementById('text-to-type'); // Selects the element showing the text to type.
 
-let selectedDuration = 1;
-let timerInterval;
-let timeLeft = selectedDuration * 60; // in seconds
-let isTestRunning = false;
-let totalWordsTyped = 0;
-let correctWords = 0;
-let incorrectWords = 0;
-let currentTextIndex = 0;
+// Initialize the default typing test when the page loads.
+function initializeDefaultTest() {
+    textToTypeElement.innerText = paragraphs[selectedDuration][0]; // Displays the default paragraph.
+    typingInput.disabled = false; // Enables the input box.
+    typingInput.value = ''; // Clears the input field.
+    typingInput.focus(); // Automatically focuses on the input box.
+    resetBtn.disabled = false; // Enables the reset button.
+    updateTimerDisplay(); // Updates the timer display.
+}
 
-const resetBtn = document.getElementById('reset-btn');
-const timerElement = document.getElementById('timer');
-const typingInput = document.getElementById('typing-input');
-const wpmElement = document.getElementById('wmp');
-const accuracyElement = document.getElementById('accuracy');
-const textToTypeElement = document.getElementById('text-to-type');
-
+// Event listener for changing duration and starting a test.
 document.getElementById('duration').addEventListener('change', function () {
-    selectedDuration = parseInt(this.value);
-    timeLeft = selectedDuration * 60;
-    startTypingTest(); // Automatically start the typing test when duration is selected
-    updateTimerDisplay();
+    selectedDuration = parseInt(this.value); // Updates the selected duration based on user input.
+    timeLeft = selectedDuration * 60; // Resets the time left based on the new duration.
+    startTypingTest(); // Starts the typing test automatically when duration is selected.
+    updateTimerDisplay(); // Updates the displayed timer with the new duration.
 });
 
+// Function to start the typing test.
 function startTypingTest() {
     if (!isTestRunning) {
-        typingInput.disabled = false;
-        typingInput.focus();
-        resetBtn.disabled = false;
-        currentTextIndex = (currentTextIndex + 1) % paragraphs[selectedDuration].length;
-        totalWordsTyped = 0;
-        correctWords = 0;
-        incorrectWords = 0;
+        typingInput.disabled = false; // Enables the input box for typing.
+        typingInput.focus(); // Automatically focuses on the input box.
+        resetBtn.disabled = false; // Enables the reset button.
+        currentTextIndex = 0; // Reset to the first paragraph.
+        totalWordsTyped = 0; // Resets the total words typed.
+        correctWords = 0; // Resets the count of correct words.
+        incorrectWords = 0; // Resets the count of incorrect words.
         textToTypeElement.innerText = paragraphs[selectedDuration][currentTextIndex];
-        typingInput.value = '';
-        timeLeft = selectedDuration * 60;
-        updateTimerDisplay();
+        typingInput.value = ''; // Clears the input box.
+        timeLeft = selectedDuration * 60; // Resets the timer.
+        updateTimerDisplay(); // Updates the displayed timer.
     }
 }
 
+// Timer logic.
 function startTimer() {
     timerInterval = setInterval(function () {
         timeLeft--;
@@ -316,56 +327,65 @@ function startTimer() {
     }, 1000);
 }
 
+// Updates the timer display.
 function updateTimerDisplay() {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    timerElement.innerText = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    const minutes = Math.floor(timeLeft / 60); // Calculates remaining minutes.
+    const seconds = timeLeft % 60; // Calculates remaining seconds.
+    timerElement.innerText = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`; // Displays time in "MM:SS" format.
 }
 
+// Ends the typing test.
 function endTest() {
-    typingInput.disabled = true;
+    typingInput.disabled = true; // Disables the input box.
+    clearInterval(timerInterval); // Stops the timer.
     const wordsPerMinute = (totalWordsTyped / 5) / (selectedDuration - (timeLeft / 60));
     const accuracy = (correctWords / (correctWords + incorrectWords)) * 100;
-    wpmElement.innerText = `WPM: ${Math.round(wordsPerMinute)}`;
-    accuracyElement.innerText = `Accuracy: ${Math.round(accuracy)}%`;
+    wpmElement.innerText = `WPM: ${Math.round(wordsPerMinute)}`; // Updates WPM display.
+    accuracyElement.innerText = `Accuracy: ${Math.round(accuracy)}%`; // Updates accuracy display.
 }
 
+// Resets the typing test.
 function resetTest() {
-    clearInterval(timerInterval);
-    timeLeft = selectedDuration * 60;
-    isTestRunning = false;
-    typingInput.value = '';
-    currentTextIndex = (currentTextIndex + 1) % paragraphs[selectedDuration].length;
+    console.log("Resetting test...");
+    clearInterval(timerInterval); // Stops any running timer.
+    timeLeft = selectedDuration * 60; // Resets the timer to the selected duration.
+    isTestRunning = false; // Marks the test as not running.
+    typingInput.value = ''; // Clears the input box.
+    currentTextIndex = 0; // Reset to the first paragraph.
     textToTypeElement.innerText = paragraphs[selectedDuration][currentTextIndex];
-    wpmElement.innerText = 'WPM: 0';
-    accuracyElement.innerText = 'Accuracy: 0%';
-    typingInput.disabled = true;
-    updateTimerDisplay();
+    wpmElement.innerText = 'WPM: 0'; // Resets WPM display.
+    accuracyElement.innerText = 'Accuracy: 0%'; // Resets accuracy display.
+    typingInput.disabled = false; // Re-enable typing input.
+    resetBtn.disabled = false; // Ensure the reset button stays enabled.
+    typingInput.focus(); // Focus on the input box.
+    updateTimerDisplay(); // Updates the timer display.
+    console.log("Test reset completed.");
 }
 
+// Handles typing input events.
 typingInput.addEventListener('input', function () {
     if (!isTestRunning) {
         startTimer();
         isTestRunning = true;
     }
 
-    const typedText = typingInput.value;
+    const typedText = typingInput.value; // Gets the text typed by the user.
     const currentText = paragraphs[selectedDuration][currentTextIndex];
-    totalWordsTyped = typedText.split(' ').length;
+    totalWordsTyped = typedText.split(' ').length; // Updates word count.
 
     correctWords = 0;
     incorrectWords = 0;
 
-    textToTypeElement.innerHTML = '';
+    textToTypeElement.innerHTML = ''; // Clears real-time feedback.
 
     currentText.split('').forEach((char, index) => {
         const charSpan = document.createElement('span');
         if (typedText[index] === char) {
-            charSpan.classList.add('correct');
+            charSpan.classList.add('correct'); // Marks correctly typed characters.
         } else if (typedText[index] !== undefined) {
-            charSpan.classList.add('incorrect');
+            charSpan.classList.add('incorrect'); // Marks incorrectly typed characters.
         }
-        charSpan.innerText = char === ' ' ? ' ' : char; // Represent spaces visually
+        charSpan.innerText = char === ' ' ? ' ' : char;
         textToTypeElement.appendChild(charSpan);
     });
 
@@ -392,14 +412,25 @@ typingInput.addEventListener('input', function () {
         }
     }
 });
-  
-    // Dark mode toggle functionality
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const currentMode = document.body.classList.contains('dark-mode') ? 'Light' : 'Dark';
-      darkModeToggle.textContent = currentMode;
-    });
+
+// Dark mode toggle functionality.
+const darkModeToggle = document.getElementById('darkModeToggle');
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const currentMode = document.body.classList.contains('dark-mode') ? 'Light' : 'Dark';
+    darkModeToggle.textContent = currentMode;
+});
+
+// Initialize default test on page load.
+window.onload = initializeDefaultTest;
+
+// Attach event listener to reset button.
+resetBtn.addEventListener('click', resetTest);
+
 </script>
 </body>
 </html>
+
+
+  
+
