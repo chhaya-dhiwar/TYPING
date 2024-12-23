@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test</title>
+    <style>
+        .correct { color: green; }
+        .incorrect { color: red; }
+        .container { text-align: center; }
+        .action-btn { margin: 10px; }
+        #start-btn { display: none; } /* Hide start button */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: rgb(147, 202, 202);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 850px;
+            margin-top:10px;
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .settings {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select, button {
+            padding: 5px;
+            margin: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 200px;
+            cursor: pointer;
+         } 
+
+        .settings button:disabled {
+            background-color: #5d7b94;
+            cursor: not-allowed;
+        }
+
+        .timer-container {
+            text-align: right;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .test-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    #text-to-type {
+    width: 100%; /* Adjust based on your layout */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    height: 200px;
+    overflow-y: auto;
+
+}
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        #results {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        #wmp {
+            align-self: flex-start;
+        }
+
+        #accuracy {
+            align-self: flex-end;
+        }
+
+       
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+            text-decoration: underline;
+        }
+
+        #wmp, #accuracy {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        .action-btn {
+         
+            height: 40px;
+      width: 150px;
+      background-color: rgb(54, 118, 118);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+      font-weight: bold;
+        }
+
+        .action-btn:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        /* Aligning buttons next to each other */
+        .action-btns {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .action-btn:hover {
+      background-color: rgb(89, 100, 221);
+    }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            select, button {
+                width: 100%;
+            }
+        }
+
+
+body.dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .header {
+        width: 100%;
+      background: rgb(42, 42, 4);
+      color: white;
+      text-shadow: 2px 3px 4px #070707;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #darkModeToggle:hover {
+      background-color: teal;
+    }
+    .home{
+        background-color: #fbf7f7;
+        color: #0c0c0c;
+        border: none;
+       height: 35px;
+       width: 100px;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
+    }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Typing Speed Tracker</h1>
+        <a href="index.html"><button class="home">Home</button></a>
+        <button class="home" id="darkModeToggle">Dark</button>
+
+    </header>
+    <div class="container">
+        <!-- <a href="page1.html"><button class="home">Home</button></a> -->
+        <h1>Check your typing skills in a minute</h1>
+        <div class="settings">
+            <label for="duration" style="font-size: 20px; font-weight: bold;">Time Duration:</label>
+            <select id="duration">
+                <option value="1">1 Minute</option>
+                <option value="2">2 Minutes</option>
+                <option value="3">3 Minutes</option>
+                <option value="5">5 Minutes</option>
+                <option value="10">10 Minutes</option>
+            </select>
+        </div>
+        <div class="timer-container">
+            <p id="timer">Time Left: 0:00</p>
+        </div>
+        <div class="test-area">
+            <p id="text-to-type"></p>
+            <textarea id="typing-input" placeholder="Start typing here..." disabled></textarea>
+            <div id="results">
+                <div id="wmp">WPM: 0</div>
+                <div id="accuracy">Accuracy: 0%</div>
+            </div>
+            <div class="action-btns">
+                <button id="reset-btn" class="action-btn" onclick="resetTest()" disabled>Restart</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let paragraphs = {
+    1: ["Quite a long time ago, there lived two talking birds with their parents. One day when their parents were away, a villager who generally had an eye on those special birds caught them and took them away. One of the birds got away from the trap and looked for his parents. The bird, at last, arrived at a hermitage where it was welcomed and had some food. He lived joyfully.", "An explorer once ran over the other bird that the villager caught. He talked very rudely to him. He was shocked to see a talking bird but at the same time was angry with his way of behaving. The explorer visited the hermitage and recognised a similar talking bird, yet this bird talked respectfully and welcomed him to remain there."],
+     2: ["We’ll delve into 12 comprehensive topics, building on what you’ve already explored in Module 3 but with a deeper focus and broader application. Each topic is crafted to strengthen your foundation in JavaScript, leveraging AI-supported prompts to engage you deeply and ensure thorough comprehension.", "After a shipwreck, a man who was the last standing figured out how to arrive at the shore. He asked God for help. After waiting too long for God to answer his requests, he built himself a hut for his protection with destroyed bits of a shipwreck. Every day he invested a lot of energy searching for food and looking at the skyline for God's help. One day, when he returned from his food search, he found his little hut burnt to ashes. Losing all hope, he felt helpless and shouted out of anger, Why God? Why do you never answer my prayers?"],
+     3: ["An explorer once ran over the other bird that the villager caught. He talked very rudely to him. He was shocked to see a talking bird but at the same time was angry with his way of behaving. The explorer visited the hermitage and recognised a similar talking bird, yet this bird talked respectfully and welcomed him to remain there.They went straight into the elephant's trunk and started messing with him. The elephant started crying in pain. He understood his mistake and apologised to the ants and every one of the animals he had harassed.", "The rabbit in the Hare and Tortoise story can be seen as an arrogant animal that ends up challenging the tortoise to a race and claiming no other animal has any time in life to defeat him. While in a specific version of the story, the tortoise challenges the hare because of his arrogant nature, the two cases show that the hare believes he'll undoubtedly win the race. There's no possible way in his mind that he could lose at any point, particularly to a slow turtle.The story of Elephants and Ants teaches us one of the great values for kids your physical appearance can never cause you any hindrance until and unless you can bring the best out of it."],
+     5: ["In the midst of a sprawling desert, an oasis shimmered like a mirage, offering solace to weary travelers. Palm trees swayed gently in the breeze, their fronds casting dappled shadows on the cool, clear waters. This sanctuary of life stood in stark contrast to the endless expanse of golden sand dunes that stretched out in every direction. Camels rested under the shade, their humps laden with precious water, while merchants and nomads exchanged stories and goods by the water’s edge. The oasis was not just a physical refuge but also a cultural crossroads, where the diverse threads of desert life intertwined. As the sun dipped below the horizon, the sky erupted in a blaze of colors, transforming the landscape into a dreamlike tableau. The stars began to twinkle, their light reflected in the tranquil waters of the oasis, creating a sense of magic and wonder."],
+    10: ["Nestled high in the mountains, a remote village thrived, its residents living in harmony with the rugged terrain. The village, surrounded by towering peaks and lush forests, was a testament to human resilience and ingenuity. Houses with sloping roofs and stone walls clung to the hillsides, each one a unique blend of old-world charm and modern practicality. The air was crisp and clean, filled with the scent of pine and the sounds of nature. Residents went about their daily routines, tending to terraced gardens, herding livestock, and weaving intricate textiles that told stories of their heritage. Life in the village was marked by a deep sense of community, with festivals and traditions bringing people together to celebrate their shared history and culture. As the seasons changed, the village adapted, with winter bringing a blanket of snow that transformed the landscape into a winter wonderland, and spring heralding the return of vibrant wildflowers and new life. Through it all, the villagers remained connected to the land, finding joy and meaning in the simple yet profound rhythm of mountain life.The early morning sun cast a golden hue over the serene waters of a small coastal village. Fishermen prepared their boats for the day's journey, their silhouettes etched against the horizon. The sound of waves gently lapping against the shore created a soothing melody, harmonizing with the calls of seagulls overhead. As the village began to stir, the aroma of freshly baked bread wafted through the air, mingling with the salty sea breeze. This idyllic scene was a daily reminder of the simple joys of life by the sea, where each day began with promise and the unspoken bond between the villagers and the ocean.","In the midst of a sprawling desert, an oasis shimmered like a mirage, offering solace to weary travelers. Palm trees swayed gently in the breeze, their fronds casting dappled shadows on the cool, clear waters. This sanctuary of life stood in stark contrast to the endless expanse of golden sand dunes that stretched out in every direction. Camels rested under the shade, their humps laden with precious water, while merchants and nomads exchanged stories and goods by the water’s edge. The oasis was not just a physical refuge but also a cultural crossroads, where the diverse threads of desert life intertwined. As the sun dipped below the horizon, the sky erupted in a blaze of colors, transforming the landscape into a dreamlike tableau. The stars began to twinkle, their light reflected in the tranquil waters of the oasis, creating a sense of magic and wonder. Here, in this timeless haven, the harsh realities of desert life seemed to fade away, replaced by a sense of peace and connection to the natural world.In the heart of a dense forest, an ancient tree stood tall, its gnarled branches stretching towards the sky. This tree, known as the Whispering Oak, had been a silent witness to countless seasons and stories of the forest inhabitants. Birds of all colors nested in its branches, their songs weaving through the air like threads in a tapestry. The forest floor beneath was a carpet of fallen leaves, moss, and tiny flowers that bloomed in the filtered sunlight. This sanctuary of life and tranquility was a testament to nature's resilience and beauty, providing shelter and nourishment to every creature that called it home."],
+};
+
+
+let selectedDuration = 1;
+let timerInterval;
+let timeLeft = selectedDuration * 60; // in seconds
+let isTestRunning = false;
+let totalWordsTyped = 0;
+let correctWords = 0;
+let incorrectWords = 0;
+let currentTextIndex = 0;
+
+const resetBtn = document.getElementById('reset-btn');
+const timerElement = document.getElementById('timer');
+const typingInput = document.getElementById('typing-input');
+const wpmElement = document.getElementById('wmp');
+const accuracyElement = document.getElementById('accuracy');
+const textToTypeElement = document.getElementById('text-to-type');
+
+document.getElementById('duration').addEventListener('change', function () {
+    selectedDuration = parseInt(this.value);
+    timeLeft = selectedDuration * 60;
+    startTypingTest(); // Automatically start the typing test when duration is selected
+    updateTimerDisplay();
+});
+
+function startTypingTest() {
+    if (!isTestRunning) {
+        typingInput.disabled = false;
+        typingInput.focus();
+        resetBtn.disabled = false;
+        currentTextIndex = (currentTextIndex + 1) % paragraphs[selectedDuration].length;
+        totalWordsTyped = 0;
+        correctWords = 0;
+        incorrectWords = 0;
+        textToTypeElement.innerText = paragraphs[selectedDuration][currentTextIndex];
+        typingInput.value = '';
+        timeLeft = selectedDuration * 60;
+        updateTimerDisplay();
+    }
+}
+
+function startTimer() {
+    timerInterval = setInterval(function () {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            endTest();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timerElement.innerText = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+function endTest() {
+    typingInput.disabled = true;
+    const wordsPerMinute = (totalWordsTyped / 5) / (selectedDuration - (timeLeft / 60));
+    const accuracy = (correctWords / (correctWords + incorrectWords)) * 100;
+    wpmElement.innerText = `WPM: ${Math.round(wordsPerMinute)}`;
+    accuracyElement.innerText = `Accuracy: ${Math.round(accuracy)}%`;
+}
+
+function resetTest() {
+    clearInterval(timerInterval);
+    timeLeft = selectedDuration * 60;
+    isTestRunning = false;
+    typingInput.value = '';
+    currentTextIndex = (currentTextIndex + 1) % paragraphs[selectedDuration].length;
+    textToTypeElement.innerText = paragraphs[selectedDuration][currentTextIndex];
+    wpmElement.innerText = 'WPM: 0';
+    accuracyElement.innerText = 'Accuracy: 0%';
+    typingInput.disabled = true;
+    updateTimerDisplay();
+}
+
+typingInput.addEventListener('input', function () {
+    if (!isTestRunning) {
+        startTimer();
+        isTestRunning = true;
+    }
+
+    const typedText = typingInput.value;
+    const currentText = paragraphs[selectedDuration][currentTextIndex];
+    totalWordsTyped = typedText.split(' ').length;
+
+    correctWords = 0;
+    incorrectWords = 0;
+
+    textToTypeElement.innerHTML = '';
+
+    currentText.split('').forEach((char, index) => {
+        const charSpan = document.createElement('span');
+        if (typedText[index] === char) {
+            charSpan.classList.add('correct');
+        } else if (typedText[index] !== undefined) {
+            charSpan.classList.add('incorrect');
+        }
+        charSpan.innerText = char === ' ' ? ' ' : char; // Represent spaces visually
+        textToTypeElement.appendChild(charSpan);
+    });
+
+    for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === currentText[i]) {
+            correctWords++;
+        } else {
+            incorrectWords++;
+        }
+    }
+
+    const wordsPerMinute = (totalWordsTyped / 5) / (selectedDuration - (timeLeft / 60));
+    const accuracy = (correctWords / (correctWords + incorrectWords)) * 100;
+    wpmElement.innerText = `WPM: ${Math.round(wordsPerMinute)}`;
+    accuracyElement.innerText = `Accuracy: ${Math.round(accuracy)}%`;
+
+    if (typedText === currentText) {
+        currentTextIndex++;
+        if (currentTextIndex < paragraphs[selectedDuration].length) {
+            textToTypeElement.innerText = paragraphs[selectedDuration][currentTextIndex];
+            typingInput.value = '';
+        } else {
+            endTest();
+        }
+    }
+});
+  
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const currentMode = document.body.classList.contains('dark-mode') ? 'Light' : 'Dark';
+      darkModeToggle.textContent = currentMode;
+    });
+</script>
+</body>
+</html>
